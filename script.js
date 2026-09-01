@@ -349,14 +349,14 @@ function addToCalendar(eventType) {
     if (eventType === 'misa') {
         title = "Santa Misa de Acción de Gracias - XV Años Stefani Michel";
         details = "Misa de Acción de Gracias por los 15 Años de Stefani Michel. Padres: Manuel Bonilla y Jhoana Luna.";
-        location = "Iglesia Santa Rosa de Lima";
-        // 6 de Septiembre a las 8:30 PM (20:30)
-        startDate = `${currentYear}0906T203000`;
-        endDate = `${currentYear}0906T220000`;
+        location = "Iglesia Santa Rosa de Lima, El Palotal";
+        // 6 de Septiembre a las 8:30 AM (08:30)
+        startDate = `${currentYear}0906T083000`;
+        endDate = `${currentYear}0906T100000`;
     } else {
         title = "Mis XV Años - Gran Fiesta Stefani Michel";
         details = "Celebración de los 15 Años de Stefani Michel. Recepción en casa de sus abuelos. ¡Lluvia de Sobres!";
-        location = "Casa de mis Abuelos, Calle 7 Barrio Bolivariano";
+        location = "Casa de mis Abuelos, Calle 7 Barrio Bolivariano, El Palotal";
         // 12 de Septiembre 8:00 PM (20:00) a 03:00 AM día siguiente
         startDate = `${currentYear}0912T200000`;
         endDate = `${currentYear}0913T030000`;

@@ -766,6 +766,81 @@ body {
     right: 0;
     height: 3px;
     background: var(--gold-gradient);
+    z-index: 2;
+}
+
+/* =========================================================
+   RAYO DE LUZ DE CRISTAL / SEDA (GLASS SHEEN SWEEP)
+   ========================================================= */
+
+.card-emerald::after,
+.hero-section::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -150%;
+    width: 60%;
+    height: 200%;
+    background: linear-gradient(
+        65deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.02) 20%,
+        rgba(255, 240, 160, 0.2) 42%,
+        rgba(255, 255, 255, 0.55) 50%,
+        rgba(255, 240, 160, 0.2) 58%,
+        rgba(255, 255, 255, 0.02) 80%,
+        transparent 100%
+    );
+    transform: rotate(25deg);
+    pointer-events: none;
+    z-index: 7;
+    animation: luxurySheenSweep 7.5s infinite cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.hero-section::after {
+    animation-delay: 0.2s;
+}
+
+.parents-section::after {
+    animation-delay: 1.8s;
+}
+
+.countdown-section::after {
+    animation-delay: 3.4s;
+}
+
+.events-grid .event-card:nth-child(1)::after {
+    animation-delay: 1.2s;
+}
+
+.events-grid .event-card:nth-child(2)::after {
+    animation-delay: 2.8s;
+}
+
+.dresscode-section::after {
+    animation-delay: 4.6s;
+}
+
+.gift-section::after {
+    animation-delay: 6.0s;
+}
+
+@keyframes luxurySheenSweep {
+    0% {
+        left: -160%;
+        opacity: 0;
+    }
+    4% {
+        opacity: 0.95;
+    }
+    30% {
+        left: 210%;
+        opacity: 0.95;
+    }
+    31%, 100% {
+        left: 210%;
+        opacity: 0;
+    }
 }
 
 /* =========================================================
@@ -795,8 +870,14 @@ body {
 }
 
 @keyframes parentNameBreath {
-    0% { filter: drop-shadow(0 2px 6px rgba(212, 175, 55, 0.45)); transform: scale(1); }
-    100% { filter: drop-shadow(0 0 18px rgba(253, 246, 187, 0.85)); transform: scale(1.025); }
+    0% {
+        filter: drop-shadow(0 2px 6px rgba(212, 175, 55, 0.45)) drop-shadow(0 0 10px rgba(212, 175, 55, 0.3));
+        transform: scale(1);
+    }
+    100% {
+        filter: drop-shadow(0 0 20px rgba(253, 246, 187, 0.9)) drop-shadow(0 0 35px rgba(212, 175, 55, 0.6));
+        transform: scale(1.03);
+    }
 }
 
 @keyframes ampersandGlow {
@@ -1132,16 +1213,16 @@ body {
 }
 
 .parent-card {
-    background: linear-gradient(160deg, rgba(8, 48, 38, 0.92) 0%, rgba(3, 22, 17, 0.96) 100%);
-    border: 1.5px solid rgba(212, 175, 55, 0.5);
-    border-radius: 16px;
-    padding: 22px 32px;
+    background: linear-gradient(160deg, rgba(8, 48, 38, 0.94) 0%, rgba(3, 22, 17, 0.98) 100%);
+    border: 1.5px solid rgba(212, 175, 55, 0.55);
+    border-radius: 18px;
+    padding: 24px 34px;
     box-shadow: 
-        0 10px 30px rgba(0, 0, 0, 0.6), 
-        0 0 20px rgba(212, 175, 55, 0.2),
-        inset 0 0 15px rgba(0, 0, 0, 0.4);
+        0 12px 35px rgba(0, 0, 0, 0.65), 
+        0 0 25px rgba(212, 175, 55, 0.25),
+        inset 0 0 20px rgba(0, 0, 0, 0.5);
     position: relative;
-    min-width: 240px;
+    min-width: 245px;
     transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease, border-color 0.35s ease;
     overflow: visible;
 }
@@ -1150,10 +1231,20 @@ body {
     content: '';
     position: absolute;
     top: 0;
-    left: 0;
-    right: 0;
+    left: 15%;
+    right: 15%;
+    height: 1.5px;
+    background: linear-gradient(90deg, transparent, rgba(255, 235, 160, 0.9), transparent);
+}
+
+.parent-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    right: 25%;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255, 235, 160, 0.8), transparent);
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.6), transparent);
 }
 
 .parent-card:hover {
@@ -1180,36 +1271,42 @@ body {
 }
 
 .parent-name {
-    font-family: 'Pinyon Script', 'Alex Brush', 'MonteCarlo', cursive;
-    font-size: 3rem;
-    font-weight: 400;
-    line-height: 1.25;
-    color: #fff8d6;
-    text-shadow: 
-        0 0 15px rgba(255, 235, 140, 0.8),
-        0 0 30px rgba(212, 175, 55, 0.5),
-        0 2px 4px rgba(0, 0, 0, 0.85);
-    letter-spacing: 1.5px;
+    font-family: 'Dancing Script', 'Alex Brush', cursive;
+    font-size: 2.9rem;
+    font-weight: 700;
+    line-height: 1.2;
+    background: linear-gradient(135deg, #ffffff 0%, #fff2a8 20%, #d4af37 45%, #fff8d6 70%, #b8860b 90%, #ffffff 100%);
+    background-size: 250% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 1.2px;
     margin: 4px 0 0 0;
     display: inline-block;
-    padding: 0 10px;
+    padding: 0 12px;
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    animation: goldShimmerMove 4.5s linear infinite, parentNameBreath 3.2s ease-in-out infinite alternate;
 }
 
 .parent-connector {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0 6px;
 }
 
 .parent-ampersand {
-    font-family: 'Pinyon Script', 'Alex Brush', cursive;
-    font-size: 3.6rem;
-    color: var(--gold-primary);
-    text-shadow: 0 0 18px rgba(212, 175, 55, 0.85), 0 2px 4px rgba(0,0,0,0.6);
+    font-family: 'Dancing Script', 'Alex Brush', cursive;
+    font-size: 3.4rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #fff3b0 0%, #ffd700 35%, #fff9d6 60%, #c59b27 85%, #fff3b0 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     line-height: 1;
     display: inline-block;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+    filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.6)) drop-shadow(0 2px 4px rgba(0,0,0,0.6));
+    animation: goldShimmerMove 4s linear infinite, ampersandGlow 3s ease-in-out infinite alternate;
 }
 
 .parents-text {
@@ -1749,13 +1846,13 @@ body {
     }
 
     .parent-name {
-        font-size: 2.4rem;
-        letter-spacing: 1px;
+        font-size: 2.3rem;
+        letter-spacing: 0.8px;
     }
 
     .parent-ampersand {
-        font-size: 3rem;
-        margin: -4px 0;
+        font-size: 2.8rem;
+        margin: -2px 0;
     }
 }
 
