@@ -23,7 +23,8 @@
     <!-- Animate.css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
-    <!-- Custom CSS -->
+    <!-- Custom CSS (compatible con archivos sueltos o en carpetas) -->
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -149,7 +150,7 @@
                 
                 <div class="quinceanera-silhouette-frame">
                     <div class="silhouette-inner-border">
-                        <img src="assets/silueta_quinceanera.jpg" alt="Silueta Quinceañera Stefani Michel" class="quinceanera-silhouette-img">
+                        <img src="silueta_quinceanera.jpg" onerror="this.onerror=null; this.src='assets/silueta_quinceanera.jpg';" alt="Silueta Quinceañera Stefani Michel" class="quinceanera-silhouette-img">
                     </div>
                     <div class="silhouette-glow"></div>
                 </div>
@@ -363,7 +364,8 @@
 
     </main>
 
-    <!-- SCRIPTS -->
-    <script src="js/script.js"></script>
+    <!-- SCRIPTS (compatible con archivos sueltos o en carpetas) -->
+    <script src="script.js"></script>
+    <script>if (typeof initParticles === 'undefined') { document.write('<script src="js/script.js"><\/script>'); }</script>
 </body>
 </html>

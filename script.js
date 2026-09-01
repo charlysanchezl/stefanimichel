@@ -208,10 +208,15 @@ function setupAudio() {
     const musicBtn = document.getElementById('music-btn');
     if (!musicBtn) return;
 
-    // Verificar si existe archivo local musica.mp3
-    customAudio = new Audio('assets/musica.mp3');
+    // Probar primero en raíz 'musica.mp3' y con fallback a 'assets/musica.mp3'
+    customAudio = new Audio('musica.mp3');
     customAudio.loop = true;
     customAudio.volume = 0.6;
+    customAudio.addEventListener('error', () => {
+        if (customAudio && customAudio.src && !customAudio.src.includes('assets/')) {
+            customAudio.src = 'assets/musica.mp3';
+        }
+    });
 
     musicBtn.addEventListener('click', () => {
         toggleAudio();
