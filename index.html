@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mis XV Años | Stefani Michel</title>
+    
+    <!-- Meta tags para compartir en WhatsApp, Facebook, etc. -->
+    <meta property="og:title" content="¡Estás invitado a mis XV Años! - Stefani Michel">
+    <meta property="og:description" content="Acompáñame a celebrar este día tan especial e inolvidable. Haz clic para ver mi invitación.">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#062b22">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Allura&family=Cinzel+Decorative:wght@700&family=Cinzel:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Italianno&family=MonteCarlo&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=Parisienne&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Pinyon+Script&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- Fondo de Partículas Doradas -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- PANTALLA DE APERTURA: SOBRE DE GALA REAL INTERACTIVO (ULTRA ELEGANTE) -->
+    <div id="envelope-screen" class="envelope-overlay">
+        <div class="envelope-scene">
+            <!-- Resplandor y halo ambiental de fondo -->
+            <div class="envelope-ambient-glow"></div>
+            <div class="envelope-royal-halo"></div>
+
+            <div class="envelope-box" id="envelope-box">
+                <!-- Esquinas de Filigrana Dorada de Gala -->
+                <div class="env-corner env-corner-tl"></div>
+                <div class="env-corner env-corner-tr"></div>
+                <div class="env-corner env-corner-bl"></div>
+                <div class="env-corner env-corner-br"></div>
+
+                <!-- Cuerpo trasero del sobre con forro de oro -->
+                <div class="env-back">
+                    <div class="env-lining"></div>
+                    <div class="env-lining-pattern"></div>
+                </div>
+
+                <!-- Tarjeta de Gala Interior -->
+                <div class="env-letter" id="envelope-letter">
+                    <div class="env-card-inner">
+                        <div class="env-card-corner-decor tl">❦</div>
+                        <div class="env-card-corner-decor tr">❦</div>
+                        <div class="env-card-corner-decor bl">❦</div>
+                        <div class="env-card-corner-decor br">❦</div>
+                        
+                        <div class="env-card-border">
+                            <i class="fas fa-crown env-card-crown"></i>
+                            <span class="env-card-badge">MIS XV AÑOS</span>
+                            <h2 class="env-card-name">Stefani Michel</h2>
+                            <div class="env-card-divider">
+                                <span></span>✦<span></span>
+                            </div>
+                            <p class="env-card-date">12 DE SEPTIEMBRE</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bolsillo frontal con solapas 3D -->
+                <div class="env-pocket">
+                    <div class="env-pocket-base"></div>
+                    <div class="env-pocket-left"></div>
+                    <div class="env-pocket-right"></div>
+                    <div class="env-pocket-bottom"></div>
+                </div>
+
+                <!-- Cinta de Seda Dorada de Gala (Belly Band) -->
+                <div class="env-ribbon" id="envelope-ribbon">
+                    <div class="ribbon-gold-line"></div>
+                    <div class="ribbon-shine"></div>
+                </div>
+
+                <!-- Solapa Superior de Gala con Filigrana -->
+                <div class="env-flap" id="envelope-flap">
+                    <div class="flap-outer">
+                        <div class="flap-filigree"></div>
+                    </div>
+                    <div class="flap-inner"></div>
+                </div>
+                
+                <!-- Sello Real de Cera 3D en Oro 24K con Monograma y Corona -->
+                <div class="wax-seal" id="wax-seal-btn" title="Toca para abrir la invitación">
+                    <div class="seal-organic-rim"></div>
+                    <div class="seal-ring"></div>
+                    <div class="seal-beaded-border"></div>
+                    <div class="seal-body">
+                        <i class="fas fa-crown seal-crown-icon"></i>
+                        <span class="seal-monogram-text">SM</span>
+                    </div>
+                    <div class="seal-sheen"></div>
+                    <div class="seal-pulse-glow"></div>
+                </div>
+            </div>
+            
+            <div class="envelope-instruction">
+                <div class="instruction-pill">
+                    <i class="fas fa-crown royal-pill-icon"></i>
+                    <span>Toca el sello real para abrir la invitación</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BOTÓN FLOTANTE DE MÚSICA -->
+    <div class="music-controller hidden" id="music-controller">
+        <button id="music-btn" class="music-btn" aria-label="Control de Música">
+            <i class="fas fa-music" id="music-icon"></i>
+            <span class="music-waves" id="music-waves">
+                <span></span><span></span><span></span>
+            </span>
+        </button>
+        <span class="music-tooltip">Música de fondo</span>
+    </div>
+
+    <!-- CONTENEDOR PRINCIPAL DE LA INVITACIÓN -->
+    <main id="main-content" class="invitation-container hidden">
+        
+        <!-- HEADER / HERO -->
+        <header class="hero-section">
+            <div class="gold-frame-decor">
+                <div class="corner corner-tl"></div>
+                <div class="corner corner-tr"></div>
+                <div class="corner corner-bl"></div>
+                <div class="corner corner-br"></div>
+            </div>
+
+            <div class="hero-content">
+                <div class="crown-icon-container">
+                    <i class="fas fa-crown gold-crown"></i>
+                </div>
+                
+                <span class="hero-subtitle">NOS COMPLACE INVITARTE A CELEBRAR</span>
+                <h2 class="hero-title-xv">Mis XV Años</h2>
+                
+                <div class="quinceanera-silhouette-frame">
+                    <div class="silhouette-inner-border">
+                        <img src="assets/silueta_quinceanera.jpg" alt="Silueta Quinceañera Stefani Michel" class="quinceanera-silhouette-img">
+                    </div>
+                    <div class="silhouette-glow"></div>
+                </div>
+
+                <div class="name-container">
+                    <h1 class="quinceanera-name">Stefani Michel</h1>
+                    <div class="gold-divider">
+                        <span class="divider-line"></span>
+                        <span class="divider-icon">✦</span>
+                        <span class="divider-line"></span>
+                    </div>
+                </div>
+
+                <p class="hero-quote">
+                    "Hay momentos en la vida que son irrepetibles, pero compartirlos con las personas que más queremos los hace inolvidables."
+                </p>
+
+                <!-- FECHA DESTACADA -->
+                <div class="highlight-date-badge">
+                    <div class="date-item">
+                        <span class="date-label">SÁBADO</span>
+                        <span class="date-number">12</span>
+                        <span class="date-month">SEPTIEMBRE</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- SECCIÓN DE PADRES -->
+        <section class="parents-section card-emerald">
+            <div class="ornament-top">❦ ✦ ❦</div>
+            <h3 class="section-title">Con la bendición de Dios y el amor de mis Padres</h3>
+            
+            <div class="parents-names-container">
+                <div class="parent-card">
+                    <span class="parent-role-badge">MI PADRE</span>
+                    <p class="parent-name">Manuel Bonilla</p>
+                </div>
+                
+                <div class="parent-connector">
+                    <span class="parent-ampersand">&</span>
+                </div>
+                
+                <div class="parent-card">
+                    <span class="parent-role-badge">MI MADRE</span>
+                    <p class="parent-name">Jhoana Luna</p>
+                </div>
+            </div>
+
+            <p class="parents-text">
+                Tienen el inmenso honor y la alegría de invitarte a la mágica celebración de los quince años de su querida hija.
+            </p>
+            <div class="ornament-bottom">❦ ✦ ❦</div>
+        </section>
+
+        <!-- CUENTA REGRESIVA -->
+        <section class="countdown-section card-emerald">
+            <div class="section-header">
+                <i class="fas fa-hourglass-half gold-icon"></i>
+                <h3 class="section-title">Faltan Solo</h3>
+            </div>
+
+            <div class="countdown-grid" id="countdown-timer">
+                <div class="countdown-card">
+                    <span class="countdown-num" id="cd-days">00</span>
+                    <span class="countdown-label">Días</span>
+                </div>
+                <div class="countdown-card">
+                    <span class="countdown-num" id="cd-hours">00</span>
+                    <span class="countdown-label">Horas</span>
+                </div>
+                <div class="countdown-card">
+                    <span class="countdown-num" id="cd-minutes">00</span>
+                    <span class="countdown-label">Min</span>
+                </div>
+                <div class="countdown-card">
+                    <span class="countdown-num" id="cd-seconds">00</span>
+                    <span class="countdown-label">Seg</span>
+                </div>
+            </div>
+
+            <p class="countdown-quote">¡Cada segundo cuenta para vivir una noche inolvidable!</p>
+        </section>
+
+        <!-- ITINERARIO / EVENTOS -->
+        <section class="events-section">
+            <h2 class="main-section-title">
+                <span class="gold-gradient-text">Dónde & Cuándo</span>
+                <span class="title-sub">ITINERARIO DE LA CELEBRACIÓN</span>
+            </h2>
+
+            <div class="events-grid">
+                
+                <!-- MISA / CEREMONIA RELIGIOSA -->
+                <div class="event-card card-emerald">
+                    <div class="event-icon-circle">
+                        <i class="fas fa-church"></i>
+                    </div>
+                    <span class="event-badge">CEREMONIA RELIGIOSA</span>
+                    <h3 class="event-title">Santa Misa de Acción de Gracias</h3>
+                    
+                    <div class="event-details">
+                        <div class="detail-row">
+                            <i class="fas fa-calendar-alt gold-mini-icon"></i>
+                            <div>
+                                <strong>Fecha:</strong>
+                                <span>6 de Septiembre</span>
+                            </div>
+                        </div>
+                        <div class="detail-row">
+                            <i class="fas fa-clock gold-mini-icon"></i>
+                            <div>
+                                <strong>Hora:</strong>
+                                <span>8:30 PM</span>
+                            </div>
+                        </div>
+                        <div class="detail-row">
+                            <i class="fas fa-map-marker-alt gold-mini-icon"></i>
+                            <div>
+                                <strong>Lugar:</strong>
+                                <span>Iglesia Santa Rosa de Lima</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RECEPCIÓN / FIESTA -->
+                <div class="event-card card-emerald featured-event">
+                    <div class="event-icon-circle">
+                        <i class="fas fa-glass-cheers"></i>
+                    </div>
+                    <span class="event-badge gold-badge">GRAN FIESTA & RECEPCIÓN</span>
+                    <h3 class="event-title">Celebración de Mis XV</h3>
+                    
+                    <div class="event-details">
+                        <div class="detail-row">
+                            <i class="fas fa-calendar-alt gold-mini-icon"></i>
+                            <div>
+                                <strong>Fecha:</strong>
+                                <span>12 de Septiembre</span>
+                            </div>
+                        </div>
+                        <div class="detail-row">
+                            <i class="fas fa-clock gold-mini-icon"></i>
+                            <div>
+                                <strong>Hora:</strong>
+                                <span>8:00 PM</span>
+                            </div>
+                        </div>
+                        <div class="detail-row">
+                            <i class="fas fa-map-marker-alt gold-mini-icon"></i>
+                            <div>
+                                <strong>Lugar:</strong>
+                                <span>Casa de mis Abuelos</span>
+                                <small class="address-text">Calle 7, Barrio Bolivariano</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DRESS CODE & DETALLES -->
+        <section class="dresscode-section card-emerald">
+            <div class="dresscode-icon">
+                <i class="fas fa-user-tie"></i>
+            </div>
+            <h3 class="section-title">Código de Vestimenta</h3>
+            <p class="dresscode-type">TRAJE FORMAL / ELEGANTE</p>
+            
+            <div class="dresscode-palette">
+                <div class="palette-desc">
+                    <span class="palette-dot emerald"></span>
+                    <p><strong>Nota especial:</strong> El color <span class="highlight-emerald">Verde Esmeralda</span> está reservado exclusivamente para la hermosa quinceañera.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- LLUVIA DE SOBRES -->
+        <section class="gift-section card-emerald">
+            <div class="gift-icon-container">
+                <i class="fas fa-envelope-open-text gold-gift-icon"></i>
+            </div>
+            <h3 class="section-title">Lluvia de Sobres</h3>
+            <p class="gift-message">
+                "Mi mayor y más hermoso regalo es contar con tu presencia y bendición en este día tan anhelado. Pero si deseas hacerme un presente, contaremos con <strong>Lluvia de Sobres</strong> en la recepción."
+            </p>
+            <div class="envelope-mini-badge">
+                <i class="fas fa-gift"></i> Gracias por tu cariño
+            </div>
+        </section>
+
+        <!-- BOTÓN DE COMPARTIR INVITACIÓN -->
+        <section class="share-section">
+            <button class="btn-share" onclick="shareInvitation()">
+                <i class="fas fa-share-alt"></i> Compartir Invitación
+            </button>
+            <button class="btn-copy-link" onclick="copyInvitationLink()">
+                <i class="fas fa-link"></i> Copiar Enlace
+            </button>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="footer-section">
+            <div class="footer-crown"><i class="fas fa-crown"></i></div>
+            <h4 class="footer-name">Stefani Michel</h4>
+            <p class="footer-date">12 de Septiembre | Mis XV Años</p>
+            <p class="footer-blessing">¡Gracias por ser parte de este momento tan especial!</p>
+        </footer>
+
+    </main>
+
+    <!-- SCRIPTS -->
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+===================================================================
+👑 GUÍA DE USO Y PERSONALIZACIÓN - INVITACIÓN DE XV AÑOS 👑
+                 STEFANI MICHEL
+===================================================================
+
+¡Felicidades por esta hermosa celebración! Esta invitación digital está lista para usar y compartir de manera muy sencilla.
+
+-------------------------------------------------------------------
+1. CÓMO VER LA INVITACIÓN AHORA MISMO
+-------------------------------------------------------------------
+- Simplemente haz doble clic sobre el archivo "index.html" en esta carpeta.
+- Se abrirá en tu navegador web favorito (Google Chrome, Microsoft Edge, Safari, etc.).
+- Verás el sobre de gala verde esmeralda con el sello dorado "SM". Al tocar el sello, se abrirá con efectos mágicos, música, la hermosa silueta de la quinceañera y toda la información del evento.
+
+-------------------------------------------------------------------
+2. CÓMO AGREGAR TU PROPIA CANCIÓN / MÚSICA FAVORITA (OPCIONAL)
+-------------------------------------------------------------------
+- La invitación incluye una melodía clásica de vals de XV años generada automáticamente.
+- Si prefieres que suene una canción específica (por ejemplo, el vals de Chayanne u otra canción favorita):
+  1. Guarda tu canción en formato MP3 con el nombre: musica.mp3
+  2. Colócala dentro de la carpeta "assets/musica.mp3".
+  3. ¡Listo! La invitación la reproducirá automáticamente.
+
+-------------------------------------------------------------------
+3. CÓMO ENVIARLA POR WHATSAPP A TUS INVITADOS (OPCIONES DE PUBLICACIÓN)
+-------------------------------------------------------------------
+Para que tus invitados puedan abrir la invitación desde cualquier celular:
+
+OPCIÓN A (Gratis con Netlify Drop, Vercel o GitHub Pages):
+- Puedes subir estos archivos a Netlify Drop (https://app.netlify.com/drop) arrastrando la carpeta "XVAÑOS".
+- Te dará un enlace web corto y elegante (ej. https://stefani-mis-15.netlify.app) que podrás enviar por WhatsApp.
+
+OPCIÓN B:
+- Si tienes un hosting o dominio propio, simplemente sube estos archivos a la raíz de tu servidor web.
+
+-------------------------------------------------------------------
+DATOS INCLUIDOS EN LA INVITACIÓN:
+- Quinceañera: Stefani Michel
+- Silueta de Gala: Incluida en marco dorado
+- Padres: Manuel Bonilla y Jhoana Luna
+- Santa Misa: 6 de Septiembre a las 8:30 PM en Iglesia Santa Rosa de Lima
+- Gran Fiesta y Recepción: 12 de Septiembre a las 8:00 PM
+- Lugar Recepción: Casa de mis abuelos, Calle 7 Barrio Bolivariano
+- Regalo: Lluvia de Sobres
+- Código de Vestimenta: Traje Formal / Elegante (Verde Esmeralda reservado para Stefani)
+- Colores temáticos: Verde Esmeralda y Dorado
+===================================================================
