@@ -1,0 +1,1762 @@
+/* =========================================================
+   MIS XV AÑOS - STEFANI MICHEL
+   ESTILOS PREMIUM: VERDE ESMERALDA & DORADO REAL
+   ========================================================= */
+
+:root {
+    /* Paleta Verde Esmeralda */
+    --emerald-darkest: #031711;
+    --emerald-dark: #062b21;
+    --emerald-primary: #0a4435;
+    --emerald-light: #0f614b;
+    --emerald-bright: #168a6b;
+    --emerald-glass: rgba(6, 43, 33, 0.88);
+    --emerald-glass-card: rgba(8, 53, 41, 0.8);
+    
+    /* Paleta Dorado Metálico */
+    --gold-light: #fbeea4;
+    --gold-primary: #d4af37;
+    --gold-medium: #c59b27;
+    --gold-dark: #8e6815;
+    --gold-gradient: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
+    --gold-gradient-soft: linear-gradient(135deg, #e5c56d 0%, #fff2b2 50%, #caa03c 100%);
+    --gold-border: rgba(212, 175, 55, 0.45);
+    --gold-glow: rgba(212, 175, 55, 0.35);
+    
+    /* Textos y Sombras */
+    --text-light: #f6f9f8;
+    --text-muted: #d0e2dc;
+    --shadow-card: 0 12px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(212, 175, 55, 0.12);
+    --shadow-gold: 0 4px 15px rgba(212, 175, 55, 0.4);
+    
+    /* Tipografías */
+    --font-heading: 'Cinzel Decorative', Georgia, serif;
+    --font-script: 'Great Vibes', cursive;
+    --font-accent: 'Pinyon Script', cursive;
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-body: 'Montserrat', sans-serif;
+}
+
+/* Reset y base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    background-color: var(--emerald-darkest);
+    background-image: 
+        radial-gradient(circle at 50% 0%, #0d4d3c 0%, transparent 60%),
+        radial-gradient(circle at 10% 40%, #08372b 0%, transparent 50%),
+        radial-gradient(circle at 90% 80%, #08382c 0%, transparent 50%),
+        linear-gradient(180deg, #031711 0%, #06261d 50%, #02120e 100%);
+    background-attachment: fixed;
+    color: var(--text-light);
+    font-family: var(--font-body);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Canvas de Partículas */
+#particles-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* =========================================================
+   SOBRE DE GALA REAL INTERACTIVO (ULTRA ELEGANTE & LUXURY)
+   ========================================================= */
+
+.envelope-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle at 50% 45%, #083c2e 0%, #031e16 45%, #010f0b 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), visibility 1.2s;
+    overflow: hidden;
+}
+
+.envelope-overlay.opened {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.envelope-scene {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    perspective: 1400px;
+    padding: 20px;
+    user-select: none;
+}
+
+/* Resplandor y halo ambiental de fondo */
+.envelope-ambient-glow {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 520px;
+    height: 380px;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.22) 0%, rgba(16, 110, 85, 0.3) 40%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(40px);
+    pointer-events: none;
+    animation: ambientPulse 4.5s ease-in-out infinite alternate;
+}
+
+.envelope-royal-halo {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(circle, rgba(255, 240, 163, 0.15) 0%, transparent 65%);
+    border-radius: 50%;
+    filter: blur(25px);
+    pointer-events: none;
+    animation: haloGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes ambientPulse {
+    0% { transform: translate(-50%, -50%) scale(0.92); opacity: 0.75; }
+    100% { transform: translate(-50%, -50%) scale(1.18); opacity: 1; filter: blur(45px); }
+}
+
+@keyframes haloGlow {
+    0% { opacity: 0.4; transform: translate(-50%, -50%) scale(0.9); }
+    100% { opacity: 0.85; transform: translate(-50%, -50%) scale(1.1); }
+}
+
+/* =========================================================
+   CAJA PRINCIPAL DEL SOBRE DE GALA (EMERALD & GOLD)
+   ========================================================= */
+
+.envelope-box {
+    position: relative;
+    width: 360px;
+    height: 245px;
+    background: linear-gradient(135deg, #021a13 0%, #06382a 40%, #0a4635 60%, #031b14 100%);
+    border-radius: 12px;
+    box-shadow: 
+        0 30px 80px rgba(0, 0, 0, 0.95),
+        0 0 45px rgba(212, 175, 55, 0.3),
+        inset 0 0 25px rgba(0, 0, 0, 0.7);
+    border: 2px solid #b88d2f;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.45s ease;
+}
+
+.envelope-box:hover {
+    transform: translateY(-6px) scale(1.015);
+    box-shadow: 
+        0 35px 90px rgba(0, 0, 0, 0.98),
+        0 0 60px rgba(212, 175, 55, 0.45),
+        inset 0 0 30px rgba(0, 0, 0, 0.6);
+}
+
+/* Marco interior con pespunte dorado fino */
+.envelope-box::after {
+    content: '';
+    position: absolute;
+    inset: 7px;
+    border: 1px dashed rgba(243, 219, 137, 0.4);
+    border-radius: 8px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Esquinas de Filigrana Dorada de Gala */
+.env-corner {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    pointer-events: none;
+    z-index: 5;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"><path d="M0 0 L25 0 C20 5 15 10 15 15 C10 15 5 20 0 25 Z" fill="none" stroke="rgba(253,245,187,0.8)" stroke-width="1.2"/><circle cx="8" cy="8" r="2" fill="rgba(212,175,55,0.9)"/></svg>') no-repeat;
+    background-size: contain;
+    filter: drop-shadow(0 0 4px rgba(212, 175, 55, 0.6));
+}
+
+.env-corner-tl { top: 6px; left: 6px; }
+.env-corner-tr { top: 6px; right: 6px; transform: rotate(90deg); }
+.env-corner-bl { bottom: 6px; left: 6px; transform: rotate(-90deg); }
+.env-corner-br { bottom: 6px; right: 6px; transform: rotate(180deg); }
+
+/* =========================================================
+   CUERPO TRASERO Y FORRO DE ORO
+   ========================================================= */
+
+.env-back {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(145deg, #021710 0%, #063124 50%, #021710 100%);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.env-back::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.09) 0%, transparent 80%),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36"><path d="M18 0 L36 18 L18 36 L0 18 Z" fill="none" stroke="rgba(212,175,55,0.08)" stroke-width="1"/><circle cx="18" cy="18" r="2" fill="rgba(212,175,55,0.06)"/></svg>');
+    opacity: 0.9;
+}
+
+/* Forro interior dorado de 24K con estampado real */
+.env-lining {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 130px;
+    background: linear-gradient(180deg, #996e1a 0%, #ffd700 35%, #fff5b8 50%, #d4af37 75%, #80570b 100%);
+    opacity: 0.95;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    filter: drop-shadow(0 3px 8px rgba(0,0,0,0.6));
+    box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+.env-lining-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 130px;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0 L24 12 L12 24 L0 12 Z" fill="none" stroke="rgba(120,80,10,0.3)" stroke-width="1"/><circle cx="12" cy="12" r="1.5" fill="rgba(120,80,10,0.25)"/></svg>');
+    pointer-events: none;
+}
+
+/* =========================================================
+   TARJETA DE GALA INTERIOR (QUE EMERGE)
+   ========================================================= */
+
+.env-letter {
+    position: absolute;
+    bottom: 10px;
+    left: 14px;
+    width: 332px;
+    height: 210px;
+    background: linear-gradient(145deg, #073528, #031c15);
+    border-radius: 8px;
+    z-index: 2;
+    transition: transform 1s 0.35s cubic-bezier(0.34, 1.35, 0.64, 1), box-shadow 1s 0.35s;
+    box-shadow: 0 -8px 25px rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.envelope-box.open .env-letter {
+    transform: translateY(-120px) scale(1.02);
+    box-shadow: 
+        0 -20px 45px rgba(0,0,0,0.8),
+        0 0 35px rgba(212, 175, 55, 0.5),
+        0 0 15px rgba(255, 240, 163, 0.4);
+}
+
+.env-card-inner {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(4, 28, 21, 0.95), rgba(8, 48, 37, 0.95));
+    border: 1.5px solid #d4af37;
+    border-radius: 6px;
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.6);
+}
+
+.env-card-inner::after {
+    content: '';
+    position: absolute;
+    top: -60%;
+    left: -60%;
+    width: 220%;
+    height: 220%;
+    background: linear-gradient(60deg, transparent 40%, rgba(255, 255, 255, 0.18) 50%, transparent 60%);
+    animation: cardShimmer 3.5s infinite linear;
+}
+
+@keyframes cardShimmer {
+    0% { transform: translateY(-100%) rotate(25deg); }
+    100% { transform: translateY(100%) rotate(25deg); }
+}
+
+/* Esquinas ornamentales de la tarjeta */
+.env-card-corner-decor {
+    position: absolute;
+    color: var(--gold-primary);
+    font-size: 0.85rem;
+    opacity: 0.85;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.env-card-corner-decor.tl { top: 4px; left: 6px; }
+.env-card-corner-decor.tr { top: 4px; right: 6px; }
+.env-card-corner-decor.bl { bottom: 4px; left: 6px; }
+.env-card-corner-decor.br { bottom: 4px; right: 6px; }
+
+.env-card-border {
+    width: 100%;
+    height: 100%;
+    border: 1px dashed rgba(243, 219, 137, 0.45);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 12px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    border-radius: 4px;
+}
+
+.env-card-crown {
+    color: #ffd700;
+    font-size: 1.25rem;
+    margin-bottom: 3px;
+    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.8));
+    animation: crownFloat 3s ease-in-out infinite;
+}
+
+.env-card-badge {
+    font-family: var(--font-heading);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 3.5px;
+    background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 50%, #b38728 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+}
+
+.env-card-name {
+    font-family: var(--font-script);
+    font-size: 2.25rem;
+    color: #fff6c8;
+    text-shadow: 0 0 15px rgba(212, 175, 55, 0.8), 0 2px 4px rgba(0,0,0,0.7);
+    margin: 2px 0;
+    line-height: 1.05;
+}
+
+.env-card-divider {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--gold-primary);
+    font-size: 0.75rem;
+    margin: 3px 0;
+}
+
+.env-card-divider span {
+    width: 35px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+}
+
+.env-card-date {
+    font-size: 0.75rem;
+    color: var(--gold-light);
+    letter-spacing: 2.5px;
+    font-weight: 600;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+}
+
+/* =========================================================
+   BOLSILLO FRONTAL Y PLEGADOS 3D DEL SOBRE
+   ========================================================= */
+
+.env-pocket {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.env-pocket-base {
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+}
+
+.env-pocket-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 122px 0 123px 180px;
+    border-color: transparent transparent transparent #04251b;
+    filter: drop-shadow(3px 0 5px rgba(0,0,0,0.45));
+}
+
+.env-pocket-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 122px 180px 123px 0;
+    border-color: transparent #04251b transparent transparent;
+    filter: drop-shadow(-3px 0 5px rgba(0,0,0,0.45));
+}
+
+.env-pocket-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 180px 145px 180px;
+    border-color: transparent transparent #083c2e transparent;
+    filter: drop-shadow(0 -4px 8px rgba(0,0,0,0.5));
+}
+
+/* =========================================================
+   CINTA DE SEDA DORADA DE GALA (BELLY BAND)
+   ========================================================= */
+
+.env-ribbon {
+    position: absolute;
+    top: 50%;
+    left: -2px;
+    right: -2px;
+    transform: translateY(-50%);
+    height: 48px;
+    background: linear-gradient(90deg, 
+        #916914 0%, 
+        #d4af37 15%, 
+        #fff4be 30%, 
+        #dfb03e 50%, 
+        #fff4be 70%, 
+        #d4af37 85%, 
+        #916914 100%);
+    box-shadow: 
+        0 6px 18px rgba(0, 0, 0, 0.7),
+        0 0 20px rgba(212, 175, 55, 0.4),
+        inset 0 1px 2px rgba(255, 255, 255, 0.8),
+        inset 0 -1px 2px rgba(0, 0, 0, 0.4);
+    z-index: 4;
+    border-top: 1.5px solid #fff5b8;
+    border-bottom: 1.5px solid #755207;
+    transition: opacity 0.5s 0.2s, transform 0.5s 0.2s;
+    overflow: hidden;
+}
+
+.ribbon-gold-line {
+    position: absolute;
+    inset: 4px 0;
+    border-top: 1px dashed rgba(90, 60, 10, 0.55);
+    border-bottom: 1px dashed rgba(90, 60, 10, 0.55);
+}
+
+.ribbon-shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+    transform: skewX(-25deg);
+    animation: ribbonShineSweep 4s infinite ease-in-out;
+}
+
+@keyframes ribbonShineSweep {
+    0%, 30% { left: -100%; }
+    70%, 100% { left: 200%; }
+}
+
+.envelope-box.open .env-ribbon {
+    opacity: 0;
+    transform: translateY(-50%) scale(1.12);
+    pointer-events: none;
+}
+
+/* =========================================================
+   SOLAPA SUPERIOR DE GALA (3D ROTATING FLAP)
+   ========================================================= */
+
+.env-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 145px 180px 0 180px;
+    border-color: #0b4e3b transparent transparent transparent;
+    transform-origin: top center;
+    transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1), z-index 0.2s 0.35s;
+    z-index: 5;
+    filter: drop-shadow(0 8px 16px rgba(0,0,0,0.6));
+}
+
+.envelope-box.open .env-flap {
+    transform: rotateX(180deg);
+    z-index: 1;
+}
+
+.flap-filigree {
+    position: absolute;
+    top: -140px;
+    left: -180px;
+    right: -180px;
+    height: 140px;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="360" height="145" viewBox="0 0 360 145"><path d="M5 5 L180 140 L355 5" fill="none" stroke="rgba(255,235,160,0.85)" stroke-width="2"/><path d="M14 6 L180 130 L346 6" fill="none" stroke="rgba(212,175,55,0.4)" stroke-width="1.2" stroke-dasharray="4,4"/><path d="M170 120 C175 125, 185 125, 190 120 C185 130, 175 130, 170 120 Z" fill="rgba(255,215,0,0.9)"/></svg>') no-repeat center top;
+    pointer-events: none;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+}
+
+/* =========================================================
+   SELLO REAL DE CERA EN ORO 24K (ESCULTURA 3D)
+   ========================================================= */
+
+.wax-seal {
+    position: absolute;
+    top: 125px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 82px;
+    height: 82px;
+    z-index: 6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.45s 0.15s;
+}
+
+.wax-seal:hover {
+    transform: translate(-50%, -50%) scale(1.12);
+}
+
+.envelope-box.open .wax-seal {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Borde orgánico irregular de cera derretida */
+.seal-organic-rim {
+    position: absolute;
+    inset: -3px;
+    border-radius: 47% 53% 49% 51% / 52% 48% 52% 48%;
+    background: radial-gradient(circle at 35% 30%, #fff4be 0%, #d4af37 35%, #9e7518 70%, #523906 100%);
+    box-shadow: 
+        0 10px 25px rgba(0, 0, 0, 0.85),
+        0 0 20px rgba(212, 175, 55, 0.5),
+        inset 0 2px 4px rgba(255, 255, 255, 0.8),
+        inset 0 -4px 6px rgba(0, 0, 0, 0.6);
+    border: 1.5px solid #ffea9f;
+}
+
+.seal-ring {
+    position: absolute;
+    inset: 4px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #fff0a3, #d4af37 45%, #8f6512 85%, #473003 100%);
+    box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.6), inset 0 -3px 5px rgba(0, 0, 0, 0.7);
+    border: 1.5px solid #ffd875;
+}
+
+/* Anillo de filigrana/perlas alrededor del medallón */
+.seal-beaded-border {
+    position: absolute;
+    inset: 9px;
+    border-radius: 50%;
+    border: 2px dotted rgba(80, 50, 5, 0.7);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.seal-body {
+    position: relative;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 38% 32%, #ebd068, #b88d22 55%, #694b08 100%);
+    border: 1.5px solid rgba(100, 65, 10, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 
+        inset 0 3px 6px rgba(0,0,0,0.65),
+        inset 0 -2px 4px rgba(255,255,255,0.4);
+    z-index: 3;
+}
+
+.seal-crown-icon {
+    font-size: 0.82rem;
+    color: #382402;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6), 0 -1px 0 rgba(0,0,0,0.3);
+    margin-bottom: -2px;
+    filter: drop-shadow(0 1px 1px rgba(255,255,255,0.3));
+}
+
+.seal-monogram-text {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: #332002;
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.7), -1px -1px 0 rgba(0,0,0,0.3);
+    letter-spacing: 1.5px;
+    line-height: 1;
+}
+
+.seal-sheen {
+    position: absolute;
+    top: 9px;
+    left: 14px;
+    width: 22px;
+    height: 11px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.75);
+    transform: rotate(-35deg);
+    filter: blur(1.5px);
+    pointer-events: none;
+    z-index: 4;
+}
+
+.seal-pulse-glow {
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    animation: royalSealPulse 2.4s infinite ease-in-out;
+}
+
+@keyframes royalSealPulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 0 22px rgba(212, 175, 55, 0);
+    }
+}
+
+/* =========================================================
+   INDICADOR Y TEXTO DE INSTRUCCIÓN (VIP BADGE)
+   ========================================================= */
+
+.envelope-instruction {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.instruction-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(4, 30, 23, 0.85);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1.5px solid var(--gold-primary);
+    border-radius: 50px;
+    padding: 11px 28px;
+    color: var(--gold-light);
+    font-size: 0.88rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.5),
+        0 0 20px rgba(212, 175, 55, 0.35);
+    animation: pillPulse 2.2s infinite ease-in-out;
+}
+
+@keyframes pillPulse {
+    0%, 100% { 
+        transform: translateY(0); 
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), 0 0 15px rgba(212, 175, 55, 0.3); 
+    }
+    50% { 
+        transform: translateY(-4px); 
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 28px rgba(212, 175, 55, 0.6); 
+    }
+}
+
+.royal-pill-icon {
+    color: #ffd700;
+    font-size: 1.05rem;
+    filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.8));
+    animation: crownFloat 2s infinite ease-in-out;
+}
+
+/* =========================================================
+   ESTRUCTURA PRINCIPAL DE LA INVITACIÓN
+   ========================================================= */
+
+.invitation-container {
+    position: relative;
+    z-index: 10;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 20px 16px 60px 16px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.invitation-container.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Tarjeta Esmeralda de Lujo */
+.card-emerald {
+    background: var(--emerald-glass-card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--gold-border);
+    border-radius: 20px;
+    padding: 35px 24px;
+    margin-bottom: 28px;
+    box-shadow: var(--shadow-card);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.card-emerald::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gold-gradient);
+}
+
+/* =========================================================
+   ANIMACIONES TIPOGRÁFICAS DE GALA (ORO & RESPLANDOR)
+   ========================================================= */
+
+@keyframes goldShimmerMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes nameGlowBreath {
+    0% {
+        filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.45)) drop-shadow(0 2px 4px rgba(0,0,0,0.6));
+        transform: scale(1);
+    }
+    100% {
+        filter: drop-shadow(0 0 26px rgba(253, 246, 187, 0.85)) drop-shadow(0 0 45px rgba(212, 175, 55, 0.7));
+        transform: scale(1.025);
+    }
+}
+
+@keyframes titleSoftFloat {
+    0% { transform: translateY(0); filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.35)); }
+    100% { transform: translateY(-4px); filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.8)); }
+}
+
+@keyframes parentNameBreath {
+    0% { filter: drop-shadow(0 2px 6px rgba(212, 175, 55, 0.45)); transform: scale(1); }
+    100% { filter: drop-shadow(0 0 18px rgba(253, 246, 187, 0.85)); transform: scale(1.025); }
+}
+
+@keyframes ampersandGlow {
+    0% {
+        transform: scale(1) rotate(0deg);
+        text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+    }
+    100% {
+        transform: scale(1.12) rotate(4deg);
+        text-shadow: 0 0 25px rgba(253, 246, 187, 0.95), 0 0 40px rgba(212, 175, 55, 0.85);
+    }
+}
+
+@keyframes textGlowPulse {
+    0%, 100% { text-shadow: 0 0 6px rgba(212, 175, 55, 0.35); }
+    50% { text-shadow: 0 0 18px rgba(212, 175, 55, 0.85), 0 0 30px rgba(253, 246, 187, 0.7); }
+}
+
+@keyframes badgeGlowPulse {
+    0%, 100% {
+        box-shadow: 0 0 0 rgba(212, 175, 55, 0);
+        letter-spacing: 3px;
+    }
+    50% {
+        box-shadow: 0 0 16px rgba(212, 175, 55, 0.5);
+        letter-spacing: 3.5px;
+    }
+}
+
+@keyframes digitPulse {
+    0%, 100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 4px rgba(212, 175, 55, 0.3));
+    }
+    50% {
+        transform: scale(1.06);
+        filter: drop-shadow(0 0 14px rgba(253, 246, 187, 0.85));
+    }
+}
+
+@keyframes quoteShimmer {
+    0%, 100% { opacity: 0.88; transform: translateY(0); }
+    50% { opacity: 1; transform: translateY(-2px); text-shadow: 0 0 10px rgba(212, 175, 55, 0.2); }
+}
+
+/* Texto Dorado Metálico Animado */
+.gold-gradient-text {
+    background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    animation: goldShimmerMove 6s linear infinite;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    color: var(--gold-light);
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    animation: textGlowPulse 4s infinite ease-in-out;
+}
+
+.main-section-title {
+    text-align: center;
+    margin-bottom: 24px;
+    font-size: 1.8rem;
+    font-family: var(--font-heading);
+}
+
+.title-sub {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    letter-spacing: 3px;
+    margin-top: 4px;
+    animation: badgeGlowPulse 4s infinite ease-in-out;
+}
+
+/* =========================================================
+   HERO / PORTADA
+   ========================================================= */
+
+.hero-section {
+    position: relative;
+    padding: 50px 20px 40px 20px;
+    text-align: center;
+    border-radius: 24px;
+    background: linear-gradient(160deg, rgba(10, 68, 53, 0.9) 0%, rgba(4, 30, 23, 0.95) 100%);
+    border: 1px solid var(--gold-border);
+    box-shadow: var(--shadow-card);
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+.gold-frame-decor {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 18px;
+    pointer-events: none;
+}
+
+.corner {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-color: var(--gold-primary);
+    border-style: solid;
+}
+
+.corner-tl { top: -1px; left: -1px; border-width: 3px 0 0 3px; }
+.corner-tr { top: -1px; right: -1px; border-width: 3px 3px 0 0; }
+.corner-bl { bottom: -1px; left: -1px; border-width: 0 0 3px 3px; }
+.corner-br { bottom: -1px; right: -1px; border-width: 0 3px 3px 0; }
+
+.crown-icon-container {
+    margin-bottom: 15px;
+}
+
+.gold-crown {
+    font-size: 2.4rem;
+    color: var(--gold-primary);
+    filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.6));
+    animation: crownFloat 3s ease-in-out infinite;
+}
+
+@keyframes crownFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-7px) rotate(2deg); filter: drop-shadow(0 0 20px rgba(253, 246, 187, 0.85)); }
+}
+
+.hero-subtitle {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: var(--gold-light);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    animation: badgeGlowPulse 3.5s infinite ease-in-out;
+}
+
+.hero-title-xv {
+    font-family: var(--font-heading);
+    font-size: 2.3rem;
+    letter-spacing: 4px;
+    background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 5px;
+    animation: goldShimmerMove 5s linear infinite, titleSoftFloat 3.5s ease-in-out infinite alternate;
+}
+
+/* Marco de Silueta de Quinceañera */
+.quinceanera-silhouette-frame {
+    position: relative;
+    width: 220px;
+    height: 290px;
+    margin: 18px auto 22px auto;
+    border-radius: 120px 120px 20px 20px;
+    padding: 6px;
+    background: var(--gold-gradient);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 25px rgba(212, 175, 55, 0.4);
+    animation: silhouetteFloat 4s ease-in-out infinite;
+}
+
+@keyframes silhouetteFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+.silhouette-inner-border {
+    width: 100%;
+    height: 100%;
+    border-radius: 115px 115px 16px 16px;
+    overflow: hidden;
+    position: relative;
+    border: 2px solid #062b21;
+    background: #041f17;
+}
+
+.quinceanera-silhouette-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3));
+    transition: transform 0.5s ease;
+}
+
+.quinceanera-silhouette-frame:hover .quinceanera-silhouette-img {
+    transform: scale(1.05);
+}
+
+.silhouette-glow {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border-radius: 125px 125px 24px 24px;
+    background: transparent;
+    box-shadow: 0 0 20px rgba(46, 230, 181, 0.3);
+    pointer-events: none;
+    animation: glowPulse 3s infinite alternate;
+}
+
+@keyframes glowPulse {
+    0% { opacity: 0.4; }
+    100% { opacity: 0.9; box-shadow: 0 0 30px rgba(212, 175, 55, 0.6); }
+}
+
+.name-container {
+    margin: 10px 0 20px 0;
+}
+
+.quinceanera-name {
+    font-family: var(--font-script);
+    font-size: 3.9rem;
+    line-height: 1.1;
+    background: linear-gradient(135deg, #fff3b0 0%, #d4af37 25%, #fff9d6 50%, #aa771c 75%, #fff3b0 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: normal;
+    display: inline-block;
+    animation: goldShimmerMove 4s linear infinite, nameGlowBreath 3.2s ease-in-out infinite alternate;
+}
+
+.gold-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.divider-line {
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+}
+
+.divider-icon {
+    color: var(--gold-light);
+    font-size: 0.9rem;
+    animation: crownFloat 2.5s infinite ease-in-out;
+}
+
+.hero-quote {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+    max-width: 480px;
+    margin: 0 auto 25px auto;
+    padding: 0 15px;
+    animation: quoteShimmer 4s infinite ease-in-out;
+}
+
+/* Badge de Fecha Destacada */
+.highlight-date-badge {
+    display: inline-flex;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(8, 48, 37, 0.9), rgba(4, 25, 19, 0.95));
+    border: 1px solid var(--gold-primary);
+    border-radius: 50px;
+    padding: 8px 28px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(212, 175, 55, 0.25);
+    animation: badgeGlowPulse 4s infinite ease-in-out;
+}
+
+.date-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.date-label, .date-month {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+    color: var(--gold-light);
+}
+
+.date-number {
+    font-family: var(--font-heading);
+    font-size: 1.7rem;
+    color: #fff;
+    font-weight: bold;
+    text-shadow: 0 0 12px var(--gold-primary);
+    animation: digitPulse 2.8s infinite ease-in-out;
+}
+
+/* =========================================================
+   SECCIÓN DE PADRES (CALIGRAFÍA DE ALTA GALA PARA XV AÑOS)
+   ========================================================= */
+
+.parents-section {
+    position: relative;
+    padding: 42px 24px;
+    text-align: center;
+}
+
+.parents-section .section-title {
+    font-family: 'Cinzel', 'Playfair Display', serif;
+    font-size: 1.35rem;
+    letter-spacing: 1.5px;
+    color: #ffffff;
+    max-width: 480px;
+    margin: 12px auto 0 auto;
+    line-height: 1.4;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+}
+
+.parents-names-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 28px 0 24px 0;
+    flex-wrap: wrap;
+}
+
+.parent-card {
+    background: linear-gradient(160deg, rgba(8, 48, 38, 0.92) 0%, rgba(3, 22, 17, 0.96) 100%);
+    border: 1.5px solid rgba(212, 175, 55, 0.5);
+    border-radius: 16px;
+    padding: 22px 32px;
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.6), 
+        0 0 20px rgba(212, 175, 55, 0.2),
+        inset 0 0 15px rgba(0, 0, 0, 0.4);
+    position: relative;
+    min-width: 240px;
+    transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+    overflow: visible;
+}
+
+.parent-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 235, 160, 0.8), transparent);
+}
+
+.parent-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.7), 
+        0 0 28px rgba(212, 175, 55, 0.45);
+    border-color: var(--gold-primary);
+}
+
+.parent-role-badge {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 3.5px;
+    color: var(--gold-light);
+    background: rgba(212, 175, 55, 0.12);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    padding: 4px 16px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+
+.parent-name {
+    font-family: 'Pinyon Script', 'Alex Brush', 'MonteCarlo', cursive;
+    font-size: 3rem;
+    font-weight: 400;
+    line-height: 1.25;
+    color: #fff8d6;
+    text-shadow: 
+        0 0 15px rgba(255, 235, 140, 0.8),
+        0 0 30px rgba(212, 175, 55, 0.5),
+        0 2px 4px rgba(0, 0, 0, 0.85);
+    letter-spacing: 1.5px;
+    margin: 4px 0 0 0;
+    display: inline-block;
+    padding: 0 10px;
+    -webkit-font-smoothing: antialiased;
+}
+
+.parent-connector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.parent-ampersand {
+    font-family: 'Pinyon Script', 'Alex Brush', cursive;
+    font-size: 3.6rem;
+    color: var(--gold-primary);
+    text-shadow: 0 0 18px rgba(212, 175, 55, 0.85), 0 2px 4px rgba(0,0,0,0.6);
+    line-height: 1;
+    display: inline-block;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+}
+
+.parents-text {
+    font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+    font-size: 1.22rem;
+    font-style: italic;
+    color: var(--text-muted);
+    line-height: 1.7;
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.ornament-top, .ornament-bottom {
+    color: var(--gold-primary);
+    font-size: 1.1rem;
+    margin: 8px 0;
+    opacity: 0.9;
+    letter-spacing: 8px;
+}
+
+/* =========================================================
+   CUENTA REGRESIVA
+   ========================================================= */
+
+.countdown-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin: 22px 0 15px 0;
+}
+
+.countdown-card {
+    background: linear-gradient(145deg, #05291f, #021711);
+    border: 1px solid var(--gold-border);
+    border-radius: 14px;
+    padding: 14px 6px;
+    box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.5), 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.countdown-num {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 1.9rem;
+    color: #fff;
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    line-height: 1.1;
+}
+
+.countdown-label {
+    display: block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+.countdown-quote {
+    font-size: 0.85rem;
+    color: var(--gold-light);
+    font-style: italic;
+}
+
+/* =========================================================
+   ITINERARIO Y EVENTOS
+   ========================================================= */
+
+.events-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.event-card {
+    padding: 30px 20px;
+}
+
+.featured-event {
+    border: 1.5px solid var(--gold-primary);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7), 0 0 25px rgba(212, 175, 55, 0.25);
+}
+
+.event-icon-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #083c2e, #031c15);
+    border: 2px solid var(--gold-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 15px auto;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.35);
+}
+
+.event-icon-circle i {
+    font-size: 1.5rem;
+    color: var(--gold-light);
+}
+
+.event-badge {
+    display: inline-block;
+    background: rgba(212, 175, 55, 0.15);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    color: var(--gold-light);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    animation: badgeGlowPulse 4s infinite ease-in-out;
+}
+
+.event-badge.gold-badge {
+    background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
+    background-size: 200% auto;
+    color: #3b2804;
+    font-weight: bold;
+    border: none;
+    animation: goldShimmerMove 4s linear infinite, badgeGlowPulse 3.5s infinite ease-in-out;
+}
+
+.event-title {
+    font-family: var(--font-serif);
+    font-size: 1.45rem;
+    color: #fff;
+    margin-bottom: 18px;
+    animation: textGlowPulse 4.5s infinite ease-in-out;
+}
+
+.event-details {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: left;
+    max-width: 380px;
+    margin: 0 auto;
+    background: rgba(3, 20, 15, 0.6);
+    padding: 16px 20px;
+    border-radius: 12px;
+    border-left: 3px solid var(--gold-primary);
+}
+
+.detail-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 0.95rem;
+}
+
+.gold-mini-icon {
+    color: var(--gold-primary);
+    margin-top: 4px;
+    font-size: 1rem;
+}
+
+.detail-row strong {
+    color: var(--gold-light);
+    margin-right: 4px;
+}
+
+.address-text {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+.event-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Botones */
+.btn-gold {
+    background: var(--gold-gradient);
+    color: #332100;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    padding: 11px 20px;
+    border-radius: 30px;
+    border: none;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-gold:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+}
+
+.btn-outline-gold {
+    background: transparent;
+    color: var(--gold-light);
+    border: 1px solid var(--gold-primary);
+    font-weight: 500;
+    font-size: 0.85rem;
+    padding: 10px 18px;
+    border-radius: 30px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+}
+
+.btn-outline-gold:hover {
+    background: rgba(212, 175, 55, 0.15);
+    transform: translateY(-2px);
+}
+
+/* =========================================================
+   DRESS CODE & LLUVIA DE SOBRES
+   ========================================================= */
+
+.dresscode-icon, .gift-icon-container {
+    font-size: 2.2rem;
+    color: var(--gold-primary);
+    margin-bottom: 12px;
+    animation: crownFloat 3.5s ease-in-out infinite;
+}
+
+.dresscode-type {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    letter-spacing: 2.5px;
+    color: #fff;
+    margin-bottom: 15px;
+    animation: titleSoftFloat 4s ease-in-out infinite alternate;
+}
+
+.palette-desc {
+    background: rgba(3, 20, 15, 0.6);
+    border-radius: 10px;
+    padding: 12px 18px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.palette-dot.emerald {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #0f8b6c;
+    border: 2px solid var(--gold-light);
+    flex-shrink: 0;
+    box-shadow: 0 0 10px #2ee6b5;
+}
+
+.highlight-emerald {
+    color: #2ee6b5;
+    font-weight: 600;
+    text-shadow: 0 0 8px rgba(46, 230, 181, 0.4);
+}
+
+.gift-message {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--text-muted);
+    max-width: 500px;
+    margin: 0 auto 16px auto;
+    animation: quoteShimmer 4s infinite ease-in-out;
+}
+
+.envelope-mini-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(212, 175, 55, 0.12);
+    border: 1px dashed var(--gold-primary);
+    color: var(--gold-light);
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    animation: badgeGlowPulse 3.5s infinite ease-in-out;
+}
+
+/* =========================================================
+   COMPARTIR & FOOTER
+   ========================================================= */
+
+.share-section {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.btn-share {
+    background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
+    background-size: 200% auto;
+    color: #2b1d02;
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.35);
+    animation: goldShimmerMove 5s linear infinite;
+}
+
+.btn-copy-link {
+    background: rgba(6, 43, 33, 0.8);
+    color: var(--gold-light);
+    border: 1px solid var(--gold-primary);
+    font-weight: 500;
+    padding: 12px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+}
+
+.footer-section {
+    text-align: center;
+    padding: 30px 10px 10px 10px;
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.footer-crown {
+    color: var(--gold-primary);
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+    animation: crownFloat 3s ease-in-out infinite;
+}
+
+.footer-name {
+    font-family: var(--font-script);
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, #fff3b0 0%, #d4af37 25%, #fff9d6 50%, #aa771c 75%, #fff3b0 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 4px;
+    display: inline-block;
+    animation: goldShimmerMove 4s linear infinite, nameGlowBreath 3s ease-in-out infinite alternate;
+}
+
+.footer-date {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    letter-spacing: 2px;
+}
+
+.footer-blessing {
+    font-size: 0.85rem;
+    color: var(--gold-primary);
+    margin-top: 8px;
+    font-style: italic;
+    animation: textGlowPulse 3.5s infinite ease-in-out;
+}
+
+/* =========================================================
+   REPRODUCTOR DE MÚSICA FLOTANTE
+   ========================================================= */
+
+.music-controller {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 100;
+}
+
+.music-btn {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #094738, #031e16);
+    border: 2px solid var(--gold-primary);
+    color: var(--gold-light);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), 0 0 15px rgba(212, 175, 55, 0.4);
+    position: relative;
+    transition: transform 0.2s ease;
+}
+
+.music-btn:hover {
+    transform: scale(1.1);
+}
+
+.music-waves {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    display: flex;
+    gap: 2px;
+}
+
+.music-waves span {
+    width: 3px;
+    height: 10px;
+    background: var(--gold-light);
+    border-radius: 2px;
+    animation: waveBounce 1.2s infinite ease-in-out;
+}
+
+.music-waves span:nth-child(2) { animation-delay: 0.2s; }
+.music-waves span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes waveBounce {
+    0%, 100% { height: 4px; }
+    50% { height: 14px; }
+}
+
+.music-btn.paused .music-waves {
+    display: none;
+}
+
+.music-tooltip {
+    display: none;
+}
+
+/* =========================================================
+   MODAL DE FOTOS
+   ========================================================= */
+
+.photo-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(2, 14, 10, 0.92);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-content {
+    position: relative;
+    max-width: 500px;
+    width: 100%;
+    background: #062b21;
+    border: 2px solid var(--gold-primary);
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.8), 0 0 30px rgba(212, 175, 55, 0.3);
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: var(--gold-light);
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.modal-img-container {
+    height: 320px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+}
+
+.modal-caption {
+    font-family: var(--font-serif);
+    color: var(--gold-light);
+    font-size: 1.1rem;
+}
+
+/* =========================================================
+   MEDIA QUERIES (RESPONSIVE)
+   ========================================================= */
+
+@media (max-width: 480px) {
+    .envelope-box {
+        transform: scale(0.88);
+        transform-origin: center center;
+    }
+
+    .envelope-box:hover {
+        transform: scale(0.9);
+    }
+
+    .quinceanera-name {
+        font-size: 3rem;
+    }
+
+    .hero-title-xv {
+        font-size: 1.8rem;
+    }
+
+    .countdown-num {
+        font-size: 1.5rem;
+    }
+
+    .countdown-label {
+        font-size: 0.65rem;
+    }
+
+    .parents-names-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .parent-card {
+        width: 100%;
+        min-width: unset;
+        padding: 14px 18px;
+    }
+
+    .parent-name {
+        font-size: 2.4rem;
+        letter-spacing: 1px;
+    }
+
+    .parent-ampersand {
+        font-size: 3rem;
+        margin: -4px 0;
+    }
+}
+
+
